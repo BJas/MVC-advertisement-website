@@ -1,0 +1,122 @@
+﻿@model MvcKrisha.Models.Flat
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<div>
+    <p style="padding-left:20px; margin-top:20px;" class="knopkaedit">
+        <a href=""><img src="~/png/glyphicons-257-delete.png" alt="Alternate Text" style="width:15px; height:15px;" /> </a>
+        @Html.ActionLink("Go to Back", "Index", "Users", new { style = "text-decoration:none; color:white;" })
+    </p>
+</div>
+
+    <div class="row" style="padding-top:30px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="padding-left:0px; padding-right:0px;">
+        <img src="@Model.Image" alt="Alternate Text" style="height:500px; width:100%" />
+        <div class="row" style="padding-left:15px; padding-top:25px; padding-bottom:20px; font-size:17px;">
+            <div class="col-md-8">
+                <b>
+                    @Model.Address
+                </b>
+            </div>
+            <div class="col-md-4">
+                <b>
+                    <label style="color:green;">&#36; @Model.Price.ToString() </label>
+                </b>
+            </div>
+        </div>
+        <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;">
+            <img src="~/png/glyphicons-243-map-marker.png" style="width:15px; height:15px;" /> @Model.Region.City
+        </p>
+                <dl class="dl-horizontal" style="padding-left:15px;">
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Model.Price &#36;
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.Room)
+                    </dt>
+
+                    <dd>
+                        @Model.Room
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.BuildTime)
+                    </dt>
+
+                    <dd>
+                        @Model.BuildTime
+                    </dd>
+
+                    <dt style="color:gray">
+                        Flat
+                    </dt>
+
+                    <dd>
+                        @Model.Type
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.Floor)
+                    </dt>
+
+                    <dd>
+                        @Model.Floor of @Model.FloorAll
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.Area)
+                    </dt>
+
+                    <dd>
+                        @Model.Area m <sup>2</sup>
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.State)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.State)
+                    </dd>
+
+                    <dt style="color:gray">
+                        @Html.DisplayNameFor(model => model.Description)
+
+                    </dt>
+
+                    <dd>
+                        @Model.Type flat at street @Model.Address, built on @Model.BuildTime year, floor @Model.Floor of @Model.FloorAll, area @Model.Area m<sup>2</sup>. @Model.State state, @Model.Description
+                    </dd>
+                </dl>
+        
+        <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px; padding-top:30px;">
+            <img src="~/png/glyphicons-4-user.png" style="width:15px; height:15px;" />&#160; @Model.User.Name
+        </p>
+
+        <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;">
+            <img src="~/png/glyphicons-443-earphone.png" style="width:15px; height:15px;" />&#160; @Model.PhoneNumb
+        </p>
+
+
+        <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;padding-bottom:40px;">
+            <img src="~/png/glyphicons-11-envelope.png" style="width:15px; height:15px;" />&#160; @Model.User.Email
+        </p>
+
+        <p style="color:lightslategray; font-size:12px; padding-left:20px">
+            @Model.Views views since @Model.PublishedDate.ToShortDateString()
+        </p>
+
+    </div>
+    <div class="col-md-2"></div>
+
+</div>
+    

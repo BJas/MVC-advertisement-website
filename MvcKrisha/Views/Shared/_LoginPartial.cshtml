@@ -1,0 +1,19 @@
+﻿@using MvcKrisha.Security
+
+<ul class="nav navbar-nav navbar-right">
+
+    @if (SessionContainer.UserID != null && SessionContainer.Role == "0")
+    {
+        <li>
+            @Html.ActionLink("Log Out", "LogOff", "Account", new { id = "loginLink" },
+new { @class = "btn-danger" })
+        </li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Sign up", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) <span class="glyphicon glyphicon-plus" style="padding-top:35px;" aria-hidden="true"></span></li>
+
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) <span class="glyphicon glyphicon-lock" style="padding-top:35px;" aria-hidden="true"></span></li>
+
+    }
+</ul>

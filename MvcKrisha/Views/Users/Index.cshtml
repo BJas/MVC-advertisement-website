@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MvcKrisha.Models.Flat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+
+@Styles.Render("~/Content/css") 
+<div style="padding-left:800px;">
+    <p style="padding-left:20px; margin-top:20px;" class="knopka">
+        <a href=""><img src="~/png/glyphicons-66-tag.png" alt="Alternate Text" style="width:15px; height:15px;" /> </a>
+        @Html.ActionLink("Add Advertisement", "CreateAdd", "Users", null, new { style = "text-decoration:none; color:white;" })
+    </p>
+</div>
+    @foreach (var item in ViewBag.Profile)
+    {
+        <div class="row" style="width:100%; height:250px;padding-top:30px; background-color:#3bb672; margin-bottom:30px;">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-4" style="padding-top:18px;">
+                    <b style="font-size:17px; color:white; padding-left:30px;">@item.Name</b>
+                    <p class="srift" style="font-size:17px; color:white; padding-left:30px;">
+                        <img src="~/png/glyphicons-4-user.png" style="padding-right:3px; width:20px;padding-bottom:4px;" />
+                        <b>@item.Login</b>
+                    </p>
+                    <p class="srift" style="font-size:17px; color:white; padding-left:30px;">
+                        <img src="~/png/glyphicons-442-phone-alt.png" style="padding-right:3px; width:20px;padding-bottom:4px;" />
+                        <b>@item.PhoneNumber</b>
+                    </p>
+                    <p class="srift" style="font-size:17px; color:white; padding-left:30px;">
+                        <img src="~/png/glyphicons-11-envelope.png" style="padding-right:3px; width:20px;" />
+                        <b>@item.Email</b>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p class="knopkaedit2" style="margin-left:40px; margin-top:20px;">
+                        <a href=""><img src="~/png/glyphicons-31-pencil.png" alt="Alternate Text" style="width:15px; height:15px;padding-bottom:2px; padding-right:2px;" /></a>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserID }, new { style = "text-decoration:none; color:white;" })
+                    </p>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+            </div>
+    }
+
+<div class="row add">
+    @foreach (var item in ViewBag.Flat)
+    {
+        <div class="col-md-2"></div>
+        <div class="col-md-6 property_listing add" style="padding-left:0px; padding-right:0px; margin-left:4px; margin-right:4px;">
+            <img src="@item.Image" alt="Image of flat" style="width:100%;height:300px;"/>
+            <div class="row" style="padding-left:15px; padding-top:25px; padding-bottom:20px; font-size:17px;">
+                <div class="col-md-8" >
+                    <b>
+                        @item.Address
+                    </b>
+                </div>
+                <div class="col-md-4">
+                    <b>
+                        <label style="color:green;">&#36; @item.Price.ToString() </label>
+                    </b>
+                </div>
+            </div>
+            <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;">
+                <img src="~/png/glyphicons-243-map-marker.png" style="width:15px; height:15px;"/> @item.Region.City
+            </p>
+
+            <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;">
+                <img src="~/png/glyphicons-21-home.png" style="width:15px; height:15px;"/>&#160;@item.Area m<sup>2</sup>
+            </p>
+
+            <p style="color:darkslategrey; font:bold 17px;font-family: 'Raleway', sans-serif; padding-left:15px;">
+                <img src="~/png/glyphicons-46-calendar.png" style="width:15px; height:15px;"/> @item.BuildTime
+            </p>
+            <div style="height:80px; padding-left:15px;padding-right:15px;">
+                <text style="font-family: 'Raleway', sans-serif;">
+                    <img src="~/png/glyphicons-248-note.png" style="width:15px; height:15px;" />
+                    @item.Type, floor @item.Floor of @item.FloorAll. @item.State state, @item.Description
+                </text>
+            </div>
+            <p style="color:lightslategray; font-size:12px; padding-left:10px;">
+                <br />
+                @item.Views views, Published date: @item.PublishedDate.ToShortDateString()
+            </p>
+            <br />
+            <p class="knopka">
+                <a href=""><img src="~/png/glyphicons-40-notes.png" alt="Alternate Text" style="width:15px; height:15px;padding-bottom:2px; padding-right:2px;" /></a>
+                @Html.ActionLink("Watch add at website", "DetailsAdd", new { id = item.ID }, new { style = "text-decoration:none; color:white;" })
+            </p>
+            <p class="knopkadel">
+                <a href=""><img src="~/png/glyphicons-17-bin.png" alt="Alternate Text" style="width:15px; height:15px;padding-bottom:2px; padding-right:2px;" /></a>
+                @Html.ActionLink("Delete", "DeleteAdd", new { id = item.ID }, new { style = "text-decoration:none; color:white;" })
+            </p>
+            <p class="knopkaedit">
+                <a href=""><img src="~/png/glyphicons-31-pencil.png" alt="Alternate Text" style="width:15px; height:15px;padding-bottom:2px; padding-right:2px;" /></a>
+                @Html.ActionLink("Edit", "EditAdd", new { id = item.ID }, new { style = "text-decoration:none; color:white;" })
+            </p>
+        </div>
+    }
+
+</div>
